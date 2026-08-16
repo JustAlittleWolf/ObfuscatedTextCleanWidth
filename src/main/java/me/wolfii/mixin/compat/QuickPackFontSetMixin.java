@@ -1,4 +1,4 @@
-package me.wolfii.mixin;
+package me.wolfii.mixin.compat;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -12,11 +12,12 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(
-    value = FontSet.class
+    value = FontSet.class,
+    priority = 1100
 )
-public class FontSetMixin {
+public class QuickPackFontSetMixin {
     @WrapOperation(
-        method = "lambda$selectProviders$0",
+        method = "selectProviders",
         at = @At(
             value = "INVOKE",
             target = "Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;computeIfAbsent(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;"

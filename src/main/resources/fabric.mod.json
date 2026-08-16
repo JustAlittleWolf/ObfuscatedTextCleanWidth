@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "fixedwidthobfuscatedtext",
-  "version": "${version}",
-  "name": "FixedWidthObfuscatedText",
+  "id": "obfuscatedtextcleanwidth",
+  "version": "1.0.0",
+  "name": "ObfuscatedTextCleanWidth",
   "description": "",
   "authors": [],
   "contact": {},
   "license": "GPL-3.0",
-  "icon": "assets/fixedwidthobfuscatedtext/icon.png",
+  "icon": "assets/obfuscatedtextcleanwidth/icon.png",
   "environment": "client",
   "entrypoints": {},
   "mixins": [
-    "fixedwidthobfuscatedtext.mixins.json"
+    "obfuscatedtextcleanwidth.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=${loader_version}",
+    "fabricloader": ">=0.19.0",
     "minecraft": "${minecraft_version}"
   }
 }
