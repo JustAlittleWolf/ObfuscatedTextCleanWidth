@@ -1,12 +1,14 @@
 {
   "schemaVersion": 1,
   "id": "obfuscatedtextcleanwidth",
-  "version": "1.0.0",
+  "version": "${version}",
   "name": "ObfuscatedTextCleanWidth",
-  "description": "",
-  "authors": [],
+  "description": "Fixes \"jittery\" text following obfuscated text",
+  "authors": [
+    "JustAlittleWolf"
+  ],
   "contact": {},
-  "license": "GPL-3.0",
+  "license": "MIT",
   "icon": "assets/obfuscatedtextcleanwidth/icon.png",
   "environment": "client",
   "entrypoints": {},
