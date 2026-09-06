@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "me.wolfii.mixin",
+  "package": "me.wolfii.obfuscatedtextcleanwidth.mixin",
   "compatibilityLevel": "JAVA_25",
-  "plugin": "me.wolfii.CompatMixinPlugin",
+  "plugin": "me.wolfii.obfuscatedtextcleanwidth.CompatMixinPlugin",
   "client": [
     "FontSetMixin",
     "compat.QuickPackFontSetMixin"

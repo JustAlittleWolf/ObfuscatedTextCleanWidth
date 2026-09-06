@@ -1,4 +1,4 @@
-package me.wolfii;
+package me.wolfii.obfuscatedtextcleanwidth;
 
 import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;
@@ -18,20 +18,28 @@ public class CompatMixinPlugin implements IMixinConfigPlugin {
     }
 
     @Override
-    public void onLoad(String mixinPackage) { }
+    public void onLoad(String mixinPackage) {
+    }
 
     @Override
-    public String getRefMapperConfig() { return null; }
+    public String getRefMapperConfig() {
+        return null;
+    }
 
     @Override
-    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) { }
+    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {
+    }
 
     @Override
-    public List<String> getMixins() { return null; }
+    public List<String> getMixins() {
+        return null;
+    }
 
     @Override
-    public void preApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) { }
+    public void preApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
+    }
 
     @Override
-    public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) { }
+    public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
+    }
 }
