@@ -28,7 +28,7 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     // quick-pack https://modrinth.com/mod/quick-pack/version/fabric-1.5.0+26.2
-    compileOnly "maven.modrinth:pSISfJ4O:qkkuAg94"
+    implementation "maven.modrinth:quick-pack:8ud7G0oR"
 }
 
 processResources {
