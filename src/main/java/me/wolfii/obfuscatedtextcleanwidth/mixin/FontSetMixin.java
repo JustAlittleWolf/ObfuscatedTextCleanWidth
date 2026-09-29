@@ -1,29 +1,37 @@
 package me.wolfii.obfuscatedtextcleanwidth.mixin;
 
-import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
-import com.llamalad7.mixinextras.sugar.Local;
-import com.mojang.blaze3d.font.UnbakedGlyph;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.mojang.blaze3d.font.GlyphProvider;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.IntList;
 import me.wolfii.obfuscatedtextcleanwidth.ObfuscatedTextCleanWidthFilter;
+import net.minecraft.client.gui.font.FontOption;
 import net.minecraft.client.gui.font.FontSet;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(FontSet.class)
+import java.util.List;
+import java.util.Set;
+
+@Mixin(
+    value = FontSet.class,
+    priority = 1100
+)
 public class FontSetMixin {
-    @SuppressWarnings("WrapWithConditionTargetsNonVoid")
-    @WrapWithCondition(
-        method = "lambda$selectProviders$0",
-        at = @At(
-            value = "INVOKE",
-            target = "Lit/unimi/dsi/fastutil/ints/IntList;add(I)Z"
-        )
-    )
-    private boolean qualifiesAsObfuscationChar(
-        IntList instance,
-        int codepoint,
-        @Local(name = "glyph") UnbakedGlyph glyph
+    @Shadow
+    @Final
+    private Int2ObjectMap<IntList> glyphsByWidth;
+
+    @WrapMethod(method = "selectProviders")
+    private List<GlyphProvider> filterAllowedGlyphsByWidth(
+        List<GlyphProvider.Conditional> providers,
+        Set<FontOption> options,
+        Operation<List<GlyphProvider>> original
     ) {
-        return ObfuscatedTextCleanWidthFilter.qualifiesAsObfuscationChar(glyph);
+        List<GlyphProvider> result = original.call(providers, options);
+        ObfuscatedTextCleanWidthFilter.filterGlyphsByWidth(this.glyphsByWidth, result);
+        return result;
     }
 }
